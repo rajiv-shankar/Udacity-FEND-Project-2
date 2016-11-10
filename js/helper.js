@@ -127,7 +127,7 @@ function initializeMap() {                        // initializeMap() is called w
       map: map,
       position: placeData.geometry.location,
       title: name,
-      icon:"http://befirst.biz/clashofclans/COC-3/images/a17.png"  // REPLACED pin with icon
+      // icon:"http://befirst.biz/clashofclans/COC-3/images/a17.png"  // REPLACED pin with icon
     });
 
     var infoWindow = new google.maps.InfoWindow({  // little helper windows that open on click/hover over pin; contains more information
@@ -169,7 +169,7 @@ function initializeMap() {                        // initializeMap() is called w
 
   locations = locationFinder();                   // array of location strings returned from locationFinder()
 
-  pinPoster(locations);                            // creates pins on map for each location in the locations array
+  pinPoster(locations);                           // creates pins on map for each location in the locations array
 
 }
 
