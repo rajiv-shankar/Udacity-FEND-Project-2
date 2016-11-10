@@ -169,7 +169,7 @@ function initializeMap() {                        // initializeMap() is called w
 
   locations = locationFinder();                   // array of location strings returned from locationFinder()
 
-  pinPoster(locations);                           // creates pins on map for each location in the locations array
+  pinPoster(locations);                            // creates pins on map for each location in the locations array
 
 }
 
