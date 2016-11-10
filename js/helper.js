@@ -126,7 +126,7 @@ function initializeMap() {                        // initializeMap() is called w
     var marker = new google.maps.Marker({         // additional data about the pin for a single location
       map: map,
       position: placeData.geometry.location,
-      title: name,
+      title: name
       // icon:"http://befirst.biz/clashofclans/COC-3/images/a17.png"  // REPLACED pin with icon
     });
 
