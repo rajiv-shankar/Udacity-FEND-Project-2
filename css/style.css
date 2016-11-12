@@ -1,6 +1,6 @@
 /*STYLESHEET FOR "RESUME" WEBSITE*/
 
-* {                                       /* CHANGED */
+* {
   padding:0;
   margin:0;
   font-family: "Roboto", sans-serif;
@@ -15,21 +15,21 @@ h1 {
 
 h2 {
   font-weight: bold;
-  font-style: italic;                     /* CHANGED */
+  font-style: italic;
   font-size: 24px;
-  color: #0000b8;                         /* CHANGED | #0000b8 => strong blue */
-  line-height: 50px;                      /* CHANGED */
+  color: #0000b8;
+  line-height: 50px;
   padding: 10px;
 }
 
 h3 {
   font-style: italic;
   font-size: 18px;
-  color: #999;                            /* CHANGED */
+  color: #0000b8;
   line-height: 24px;
 }
 
-h4 {                                      /* CHANGED */
+h4 {
   font-weight: bold;
   font-style: italic;
   font-size: 24px;
@@ -39,7 +39,7 @@ h4 {                                      /* CHANGED */
   display: inline;
 }
 
-/*h2,*/                                   /* CHANGED */
+/*h2,*/
 h3,
 h4,
 h5 {
@@ -122,10 +122,10 @@ span {
 }
 
 #header {
-  background-color: #0000b8;              /*CHANGED COLOR*/
+  background-color: #0000b8;
 }
 
-#international {                          /*ADDED*/
+#international {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
@@ -137,7 +137,7 @@ span {
   text-decoration: none;
 }
 
-#international:hover {                    /*ADDED*/
+#international:hover {
   background: #4d4d4d;
   text-decoration: none;
 }
@@ -246,7 +246,7 @@ span {
 }
 
 #return-to-top i {
-    color: #ffffff;                       /*#ffffff : white*/
+    color: #ffffff;
     margin: 0;
     position: relative;
     left: 16px;
