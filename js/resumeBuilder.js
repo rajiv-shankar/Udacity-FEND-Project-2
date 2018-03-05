@@ -33,7 +33,7 @@ var education = {
       "location": "Cambridge MA",
       "degree": "Master's",
       "major": ["Economics"],
-      "dates": 2005,
+      "dates": 2006,
       "url": "http://www.harvard.edu"
     }
   ],
