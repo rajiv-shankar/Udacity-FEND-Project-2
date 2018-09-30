@@ -15,16 +15,14 @@
 
 	<script src="js/jQuery.js"></script>                  <!-- link to jQuery library -->
 	<script src="js/helper.js"></script>                  <!-- helper script -->
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>  <!-- interactive Google Map -->  <!-- * NOT WORKING ANYMORE * -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>  <!-- interactive Google Map -->  <!-- 😕 * NOT WORKING ANYMORE * -->
 
 </head>
 
 <body unresolved>
-	<!-- Before custom elements upgrade they may display incorrectly. To help mitigate FOUC [flash of unstyled content] ... add "unresolved" attribute to body. This initially hides the page until all elements are upgraded. -->  <!-- NOT WORKING: STYLES CHANGING VISIBLY WHEN SITE LOADED -->
+	<!-- Before custom elements upgrade they may display incorrectly. To help mitigate FOUC [flash of unstyled content] ... add "unresolved" attribute to body. This initially hides the page until all elements are upgraded. -->  <!-- 😕 NOT WORKING: BAD FOUC, esp. due to Google Maps loading -->
 
 	<div id="main">                                       <!-- website skeleton -->
-
-		<a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>  <!-- ADDED; "javascript:" just a placeholder; "i class" : icon -->
 
 		<div id="header" class="center-content clearfix">   <!-- clearfix: forces content to stay in container -->
 			<ul id="topContacts" class="flex-box"></ul>       <!-- contact list (in header) -->
@@ -65,6 +63,9 @@
 			<h2 class="orange center-text">Let's Connect</h2>
 			<ul id="footerContacts" class="flex-box"></ul>    <!-- contact list (in footer) -->
 		</div>
+
+		<a href="#" id="return-to-top"><i class="fa fa-arrow-up"></i></a> <!-- i class: icon -->
+		<!-- 😕 Why this code? See: https://getflywheel.com/layout/add-sticky-back-top-button-website &  https://codepen.io/rdallaire/pen/apoyx -->
 
 	</div>
 

@@ -1,6 +1,6 @@
 /* This builds the resume dynamically when index.html is opened. */
 
-/* ====================================================================== JSONs ====================================================================== */
+/* ================================= JSONs ================================== */
 
 var bio = {
   "name": "Rajiv Shankar",
@@ -87,7 +87,7 @@ var projects = {
   ]
   // "display": function                  // WHAT IS THIS?  GIVEN IN THE MOCKUP
 }
-/* =================================================================================================================================================== */
+/* ========================================================================== */
 
 
 /* ---------- HEADER & FOOTER ---------- */
@@ -275,3 +275,9 @@ projects.display();
  /*---------- MAP ---------- */
 
 $("#mapDiv").append(googleMap);
+
+
+/* to display when page fully loaded */
+// $(document).ready(function() {
+//   document.getElementsByTagName("html")[0].style.visibility = "visible";
+// });
