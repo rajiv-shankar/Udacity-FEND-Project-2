@@ -168,7 +168,7 @@ $("#mapLink").click(function() {
   }, 2000);
 });
 
-/*Code for "back-to-top" (to scroll up to top of page) */
+/* Code for "return-to-top" (to scroll up to top of page) */
 
 $(window).scroll(function() {
     if ($(this).scrollTop() >= 150) {

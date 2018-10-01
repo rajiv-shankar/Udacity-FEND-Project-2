@@ -1,13 +1,8 @@
-/*STYLESHEET FOR "RESUME" WEBSITE*/
-
 * {
   padding:0;
   margin:0;
   font-family: "Roboto", sans-serif;
 }
-
-/* to display when page fully loaded */
-/* html { visibility:hidden; } */
 
 h1 {
   font-size: 40px;
@@ -16,13 +11,20 @@ h1 {
   display: inline;
 }
 
+h2,
+h3,
+h4,
+h5 {
+  padding:10px 5%;  /* vertical: 10px, horizontal: 5% */
+}
+
 h2 {
   font-weight: bold;
   font-style: italic;
   font-size: 24px;
   color: #0000b8;
   line-height: 50px;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 h3 {
@@ -42,14 +44,7 @@ h4 {
   display: inline;
 }
 
-/*h2,*/
-h3,
-h4,
-h5 {
-  padding:10px 5%;
-}
-
-p {
+p {  /* not used? */
   font-size: 14px;
   color: #333;
   line-height: 21px;
@@ -74,7 +69,7 @@ span {
   padding: 5px;
 }
 
-/*---------------------------------------------CLASSES & ID'S (alpha sort)---------------------------------------------*/
+/* ----------------------------- CLASSES & IDs ------------------------------ */
 
 .biopic {
   float: left;
@@ -195,7 +190,7 @@ span {
   color: #fff;
 }
 
-/*---------------------------------------------NAVBAR---------------------------------------------*/
+/* --------------------------------- NAVBAR --------------------------------- */
 
 .nav {                                    /*entire navbar*/
   width: 100%;
@@ -208,7 +203,7 @@ span {
 }
 
 .nav__item {                              /*button*/
-  box-sizing: border-box;                 /*apparently not working (in black, not blue: green) - WHY? */
+  box-sizing: border-box;
   display: inline-block;
   width: 24%;
   background-color: #0000b8;
@@ -225,27 +220,27 @@ span {
   /*padding: 0.3em;*/
 }
 
-/*---------------------------------------------RETURN TO TOP OF PAGE---------------------------------------------*/
+/* -------------------------- RETURN-TO-TOP OF PAGE ------------------------- */
 
 #return-to-top {
-    position: fixed;                      /*fixed: element is positioned relative to the browser window*/
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0, 0, 184, 0.7);     /* rgb(0, 0, 184) <=> #0000b8 (for color consistency); "a" : opacity*/
-    /*background: rgb(0, 0, 0);*/
-    width: 50px;
-    height: 50px;
-    display: block;
-    text-decoration: none;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    border-radius: 35px;
-    display: none;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+  position: fixed;                      /*fixed: element is positioned relative to the browser window*/
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 184, 0.7);     /* rgb(0, 0, 184) <=> #0000b8 (for color consistency); "a" : opacity*/
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 100;                         /* to avoid overlapping with any other elements */
 }
 
 #return-to-top i {
@@ -271,7 +266,7 @@ span {
     top: 5px;
 }
 
-/*---------------------------------------------MEDIA QUERIES---------------------------------------------*/
+/* ----------------------------- MEDIA QUERIES ------------------------------ */
 
 @media only screen and (max-width: 1024px) {
   #letsConnect {

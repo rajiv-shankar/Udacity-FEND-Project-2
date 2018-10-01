@@ -10,7 +10,7 @@
 	<title>Online Résumé</title>
 
 	<link rel="stylesheet" href="bootstrap.min.css">      <!-- for NAVBAR -->
-	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">  <!-- icon for back-to-top -->
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">  <!-- icon for return-to-top -->
 	<link href="css/style.css" rel="stylesheet">
 
 	<script src="js/jQuery.js"></script>                  <!-- link to jQuery library -->
@@ -19,18 +19,18 @@
 
 </head>
 
-<body unresolved>
-	<!-- Before custom elements upgrade they may display incorrectly. To help mitigate FOUC [flash of unstyled content] ... add "unresolved" attribute to body. This initially hides the page until all elements are upgraded. -->  <!-- 😕 NOT WORKING: BAD FOUC, esp. due to Google Maps loading -->
+<body unresolved>    <!-- 😕 NOT WORKING: BAD FOUC, esp. due to Google Maps re-loading -->
+	<!-- Before custom elements upgrade they may display incorrectly. To help mitigate FOUC [flash of unstyled content] ... add "unresolved" attribute to body. This initially hides the page until all elements are upgraded. -->
 
 	<div id="main">                                       <!-- website skeleton -->
 
-		<div id="header" class="center-content clearfix">   <!-- clearfix: forces content to stay in container -->
+		<div id="header" class="center-content clearfix">   <!-- clearfix: if element is taller than element containing it, and it is floated, it will overflow its container; this forces content to stay within it -->
 			<ul id="topContacts" class="flex-box"></ul>       <!-- contact list (in header) -->
 		</div>
 
-		<div style="clear: both;"></div>                    <!-- No floating elements allowed on left & right ("both") sides of the <p> element -->
+		<div style="clear: both;"></div>                    <!-- no floating elements allowed on left & right ("both") sides of the next element, ie next <div> starts in a completeley new row -->
 
-		<div class="row">                                   <!-- ADDED: NAVBAR -->
+		<div class="row">                                   <!-- NAVBAR -->
 			<div class="col-md-12">
 				<nav id="drawer" class="nav">
 					<ul class="nav__list">
@@ -61,20 +61,19 @@
 
 		<div id="letsConnect" class="dark-gray">
 			<h2 class="orange center-text">Let's Connect</h2>
-			<ul id="footerContacts" class="flex-box"></ul>    <!-- contact list (in footer) -->
+			<ul id="footerContacts" class="flex-box"></ul>
 		</div>
 
 		<a href="#" id="return-to-top"><i class="fa fa-arrow-up"></i></a> <!-- i class: icon -->
-		<!-- 😕 Why this code? See: https://getflywheel.com/layout/add-sticky-back-top-button-website &  https://codepen.io/rdallaire/pen/apoyx -->
+		<!-- See: https://getflywheel.com/layout/add-sticky-back-top-button-website &  https://codepen.io/rdallaire/pen/apoyx -->
 
 	</div>
 
-	<script src="js/resumeBuilder.js"></script>  <!-- This builds the resume dynamically when index.html is opened. -->
+	<script src="js/resumeBuilder.js"></script>  <!-- builds site dynamically when index.html is opened -->
 
-	<script type="text/javascript">  // These check: if a resume section is empty, hide the section.
+	<script type="text/javascript">  // if a section is empty, hides the section
 
 		if(document.getElementsByClassName("flex-item").length === 0) {
-							// see: "Problem set 1 / Black out the Resume / How Resume Sections Get Hidden"
 			document.getElementById("topContacts").style.display = "none";
 		}
 		if(document.getElementsByTagName("h1").length === 0) {
@@ -88,7 +87,6 @@
 		}
 		if(document.getElementsByClassName("education-entry").length === 0) {
 			document.getElementById("education").style.display = "none";
-							// alt: document.getElementById("education").style.backgroundColor = "black";
 		}
 		if(document.getElementsByClassName("flex-item").length === 0) {
 			document.getElementById("letsConnect").style.display = "none";
@@ -96,6 +94,7 @@
 		if(document.getElementById("map") === null) {
 			document.getElementById("mapDiv").style.display = "none";
 		}
+
 	</script>
 
 </body>
