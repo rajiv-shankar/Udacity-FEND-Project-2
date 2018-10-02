@@ -1,8 +1,12 @@
-/* This builds the resume dynamically when index.html is opened. */
+/* This builds the Résumé dynamically when index.html is opened. */
 
 /* ================================= JSONs ================================== */
+// syntax for storing and exchanging data; text, written with JS object notation
+// data in "field name":"value" pairs, data separated by commas, curly braces hold objects, square brackets hold arrays
+// create an object and assign data to it / JS objects can be used as JSON:
+// [note: as this is a *.js file (not *.json) it can have comments in it]
 
-var bio = {
+var bio = {  // top section ("header")
   "name": "Rajiv Shankar",
   "role": "Web Developer",
   "contacts": {
@@ -12,10 +16,10 @@ var bio = {
     "twitter": "@RajivShankar1",
     "location": "Portland ME"
   },
-  "welcomeMessage": "Hello!  Welcome to my R&eacute;sum&eacute.",  // " &eacute " = "e, accent acute"
+  "welcomeMessage": "Hello!  Welcome to my R&eacute;sum&eacute;.",  // " &eacute;" = é [e, accent acute]
   "skills": ["HTML","CSS","JavaScript","JQuery","MS Office","Economics","Investing"],
   "bioPic": "images/me.jpg"
-  // "display": function                  // WHAT IS THIS?  GIVEN IN THE MOCKUP
+  // "display": function                  // 😕 what is this? Given in the mockup
 };
 
 var education = {
@@ -45,7 +49,7 @@ var education = {
       "url": "www.udacity.com"
     }
   ]
-  // "display": function                  // WHAT IS THIS?  GIVEN IN THE MOCKUP
+  // "display": function                  // 😕 what is this? Given in the mockup
 }
 
 var work = {
@@ -65,7 +69,7 @@ var work = {
       "description": "Wealth Management"
     }
   ]
-  // "display": function                  // WHAT IS THIS?  GIVEN IN THE MOCKUP
+  // "display": function                  // 😕 what is this? Given in the mockup
 }
 
 var projects = {
@@ -85,7 +89,7 @@ var projects = {
       "url": "http://rajiv-shankar.github.io/Project_1/Project%201B.html"     // ADDED
     }
   ]
-  // "display": function                  // WHAT IS THIS?  GIVEN IN THE MOCKUP
+  // "display": function                  // 😕 what is this? Given in the mockup
 }
 /* ========================================================================== */
 
@@ -94,7 +98,7 @@ var projects = {
 
 bio.display = function() {
 
-  var formattedName = HTMLheaderName.replace("%data%",bio.name);  // JS's .replace(old, new) swaps out placeholder (e.g. %data%) for data from JSONs
+  var formattedName = HTMLheaderName.replace("%data%",bio.name);  // JS's .replace(old, new) swaps out placeholder (e.g. %data%) for data from JSONs (bio.name)
   var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
   var formattedImage = HTMLbioPic.replace("%data%",bio.bioPic);
   var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
