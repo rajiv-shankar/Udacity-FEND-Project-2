@@ -1,15 +1,17 @@
 /* This builds the Résumé dynamically when index.html is opened. */
 
 /* ================================= JSONs ================================== */
-// syntax for storing and exchanging data; text, written with JS object notation
-// data in "field name":"value" pairs, data separated by commas, curly braces hold objects, square brackets hold arrays
-// create an object and assign data to it / JS objects can be used as JSON:
-// [note: as this is a *.js file (not *.json) it can have comments in it]
+/* language-independent syntax for storing and exchanging data; text, written in JS object notation (JSON);
+data in "field name":"value" (name–value / key–value / field–value / attribute–value) pairs;
+keys must be strings in "double quotes"; values must be: string, number, object, array, boolean, null;
+data separated by commas, curly braces hold objects, square brackets hold arrays;
+create an object and assign data to it / JS objects can be used as JSON:
+[note: as this is a *.js file (not *.json) it can have comments in it] */
 
 var bio = {  // top section ("header")
   "name": "Rajiv Shankar",
   "role": "Web Developer",
-  "contacts": {
+  "contacts": {                           // object within JSON
     "mobile": "207.576.4187",
     "email": "rshankar@post.harvard.edu",
     "github": "rajiv-shankar",
@@ -17,9 +19,9 @@ var bio = {  // top section ("header")
     "location": "Portland ME"
   },
   "welcomeMessage": "Hello!  Welcome to my R&eacute;sum&eacute;.",  // " &eacute;" = é [e, accent acute]
-  "skills": ["HTML","CSS","JavaScript","JQuery","MS Office","Economics","Investing"],
-  "bioPic": "images/me.jpg"
-  // "display": function                  // 😕 what is this? Given in the mockup
+  "skills": ["HTML","CSS","JavaScript","JQuery","MS Office","Economics","Investing"],  // array within JSON
+  "bioPic": "images/me.jpg",
+  // "display": function                  // 😕 what is this function (given in the mockup)?
 };
 
 var education = {
@@ -49,7 +51,7 @@ var education = {
       "url": "www.udacity.com"
     }
   ]
-  // "display": function                  // 😕 what is this? Given in the mockup
+  // "display": function
 }
 
 var work = {
@@ -69,7 +71,7 @@ var work = {
       "description": "Wealth Management"
     }
   ]
-  // "display": function                  // 😕 what is this? Given in the mockup
+  // "display": function
 }
 
 var projects = {
@@ -79,20 +81,19 @@ var projects = {
       "dates": "September, 2015",
       "description": "Adapted website to introduce myself to new community.",
       "images": ["images/Project_0.jpg"],
-      "url": "http://rajiv-shankar.github.io/Project%200/Project%200%20(Rajiv%20Shankar).html"     // ADDED
+      "url": "http://rajiv-shankar.github.io/Project%200/Project%200%20(Rajiv%20Shankar).html"
     },
     {
       "title": "Responsive Website",
       "dates": "October, 2015",
       "description": "Created a fully responsive and customized website from a mockup",
       "images": ["images/Project_1.jpg"],
-      "url": "http://rajiv-shankar.github.io/Project_1/Project%201B.html"     // ADDED
+      "url": "http://rajiv-shankar.github.io/Project_1/Project%201B.html"
     }
   ]
-  // "display": function                  // 😕 what is this? Given in the mockup
+  // "display": function
 }
 /* ========================================================================== */
-
 
 /* ---------- HEADER & FOOTER ---------- */
 

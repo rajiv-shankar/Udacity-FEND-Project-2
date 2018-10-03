@@ -22,7 +22,7 @@ h2 {
   font-weight: bold;
   font-style: italic;
   font-size: 24px;
-  color: #0000b8;
+  color: #333;
   line-height: 50px;
   /* padding: 10px; */
 }
@@ -30,7 +30,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 18px;
-  color: #0000b8;
+  color: #333;
   line-height: 24px;
 }
 
@@ -120,7 +120,7 @@ span {
 }
 
 #header {
-  background-color: #0000b8;
+  background-color: #333;
 }
 
 #international {
@@ -128,7 +128,7 @@ span {
   -moz-border-radius: 28;
   border-radius: 28px;
   font-family: Arial;
-  color: #ffffff;
+  color: #fff;
   font-size: 14px;
   background: #000;
   padding: 10px 20px 10px 20px;
@@ -206,7 +206,7 @@ span {
   box-sizing: border-box;
   display: inline-block;
   width: 24%;
-  background-color: #0000b8;
+  background-color: #333;
   text-align: center;
   font-size: 25px;
   font-weight: bold;
@@ -226,7 +226,7 @@ span {
   position: fixed;                      /*fixed: element is positioned relative to the browser window*/
   bottom: 20px;
   right: 20px;
-  background: rgba(0, 0, 184, 0.7);     /* rgb(0, 0, 184) <=> #0000b8 (for color consistency); "a" : opacity*/
+  background: rgba(0, 0, 184, 0.7);     /* rgb(0, 0, 184) <=> #333 (for color consistency); "a" : opacity*/
   width: 50px;
   height: 50px;
   display: block;

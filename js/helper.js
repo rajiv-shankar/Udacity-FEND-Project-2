@@ -2,10 +2,10 @@
 This file contains all of the code running in the background that makes resumeBuilder.js possible.
 We call these helper functions because they support your code in this course.
 Don't worry, you'll learn what's going on in this file throughout the course.
-You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
+You won't need to make any changes to it until you start experimenting with inserting a Google Map.
 */
 
-// These are HTML strings. As part of the course, you'll be using JavaScript functions replace the %data% placeholder text you see in them.
+// These are HTML strings. As part of the course, you'll be using JavaScript functions to replace the %data% placeholder text you see in them.
 
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<h4>%data%</h4><hr/>';                  // REPLACES <span> WITH <h4>
@@ -18,7 +18,7 @@ var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-var HTMLbioPic = '<hr/><img src="%data%" class="biopic">';    // ADDED LINE ABOVE
+var HTMLbioPic = '<hr/><img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
@@ -30,7 +30,8 @@ var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
-                                                              // following is for EACH project (can't have this in html as # of projects will vary)
+
+// This is for EACH project (can't have this in html as # of projects will vary)
 var HTMLprojectStart = '<div class="project-entry"></div>';   // adds project-entry class (has padding CSS)
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
@@ -62,7 +63,7 @@ $(document).ready(function() {
     });
 });
 
-// The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+// Collecting Click Locations
 
 clickLocations = [];
 
@@ -83,7 +84,7 @@ $(document).click(function(loc) {                             // CHANGED
   logClicks(x,y);                                             // defined in [helper.js/72]
 });
 
-/* ======================================================================= MAP ======================================================================= */
+/* =================================== MAP ================================== */
 
 /* Generate custom Google Map for the website. See: https://developers.google.com/maps/documentation/javascript/reference */
 
