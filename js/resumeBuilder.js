@@ -21,7 +21,9 @@ var bio = {  // top section ("header")
   "welcomeMessage": "Hello!  Welcome to my R&eacute;sum&eacute;.",  // " &eacute;" = é [e, accent acute]
   "skills": ["HTML","CSS","JavaScript","JQuery","MS Office","Economics","Investing"],  // array within JSON
   "bioPic": "images/me.jpg",
-  // "display": function                  // 😕 what is this function (given in the mockup)?
+
+  // 😕 WHAT IS THIS FUNCTION? Given in the mockup, but website works without it?  But there is a 'bio.display = function...' below [L102] -- why?
+  // "display": function
 };
 
 var education = {
@@ -95,16 +97,18 @@ var projects = {
 }
 /* ========================================================================== */
 
+// 😕 DO NOT CLEARLY UNDERSTAND WHAT IS GOING ON IN THIS SECTION
+
 /* ---------- HEADER & FOOTER ---------- */
 
-bio.display = function() {
+bio.display = function() {  // anonymous function expression  [😕 is this adding a fn to the "bio" json?]
 
-  var formattedName = HTMLheaderName.replace("%data%",bio.name);  // JS's .replace(old, new) swaps out placeholder (e.g. %data%) for data from JSONs (bio.name)
+  var formattedName = HTMLheaderName.replace("%data%",bio.name);  // JS's .replace(old, new) swaps out placeholder (e.g. %data%) for data from JSONs (bio.name); "HTMLheaderName" is a var in helper.js/L10
   var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
   var formattedImage = HTMLbioPic.replace("%data%",bio.bioPic);
   var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-
-  $("#header").prepend(formattedName,formattedRole).append(formattedImage,formattedMessage);  // jQuery’s .append() & .prepend() fns modifies index.html
+  $("#header").prepend(formattedName,formattedRole).append(formattedImage,formattedMessage);  // jQuery’s .prepend() & .append() inserts the specified content as the first/last child of each element in the set of matched elements
+  // see notes.html for what happens in this case
 
   var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
   $("#topContacts").append(formattedMobile);
@@ -123,7 +127,7 @@ bio.display = function() {
   $("#footerContacts").append(formattedTwitter);
   $("#footerContacts").append(formattedLocation);
 
-  if(bio.skills.length > 0) {                       // CONVERTED INTO LOOP FOR FLEXIBLE ADDITION OF SKILLS
+  if(bio.skills.length > 0) {                       // converted into loop for flexible addition of skills
 
     $("#header").append(HTMLskillsStart);
 
@@ -141,7 +145,7 @@ bio.display();
 function inName(name) {
     name = name.split(" ");
     name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-    name[1] = name[1].toUpperCase();
+    name[1] = name[1].toUpperCase();  // converts lastName to allCaps
     return name[0] + " " + name[1];
 }
 
@@ -258,8 +262,7 @@ projects.display = function() {
     $("#projects").append(HTMLprojectStart);  // adds a "HTMLprojectStart" <div> to "projects" <div>
 
     var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title).replace("#", projects.projects[project].url);  // combines JSON data (here) with helper.js data
-    $(".project-entry:last").append(formattedTitle);                                            // combines above with index.html (i.e. modifies DOM)
-                                                                                                // "last" simply adds lines sequentially
+    $(".project-entry:last").append(formattedTitle);  // combines above with index.html (i.e. modifies DOM); "last" simply adds lines sequentially
     var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
     $(".project-entry:last").append(formattedDates);
 
