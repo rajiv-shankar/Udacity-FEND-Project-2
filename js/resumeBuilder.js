@@ -1,17 +1,27 @@
 /* This builds the Résumé dynamically when index.html is opened. */
 
 /* ================================= JSONs ================================== */
-/* language-independent syntax for storing and exchanging data; text, written in JS object notation (JSON);
-data in "field name":"value" (name–value / key–value / field–value / attribute–value) pairs;
-keys must be strings in "double quotes"; values must be: string, number, object, array, boolean, null;
-data separated by commas, curly braces hold objects, square brackets hold arrays;
-create an object and assign data to it / JS objects can be used as JSON:
-[note: as this is a *.js file (not *.json) it can have comments in it] */
+/* A lightweight data-interchange format, easy for humans to read & write, easy for machines to parse & generate.
+Language-independent (ie not just in JS) SYNTAX / DATA FORMAT for storing & exchanging data
+between a browser and a server asynchronously.
+
+Simple text, written with JS Object Notation (JSON): so just like a JS object:
+- data in name / key / field / attribute: value pairs, separated by commas,
+- (JSON) objects can contain (JSON) objects, too (eg "contacts" below) - in {curly braces}
+and arrays (eg "skills" below) - in [square brackets].
+
+But in JSON:
+- all "name": "value" pairs must be in "double quotes";
+- names must be: strings; values must be: string, number, object, array, boolean, null.
+- JSONs (officially) cannot have comments (though there are workarounds)
+but as this is a *.js file (not *.json) it can have comments in it
+(*.JSON is an open-standard FILE FORMAT that uses human-readable text to transmit data objects
+ consisting of attribute–value pairs and array data types (or any other serializable value).) */
 
 var bio = {  // top section ("header")
   "name": "Rajiv Shankar",
   "role": "Web Developer",
-  "contacts": {                           // object within JSON
+  "contacts": {  // object
     "mobile": "207.576.4187",
     "email": "rshankar@post.harvard.edu",
     "github": "rajiv-shankar",
@@ -19,11 +29,10 @@ var bio = {  // top section ("header")
     "location": "Portland ME"
   },
   "welcomeMessage": "Hello!  Welcome to my R&eacute;sum&eacute;.",  // " &eacute;" = é [e, accent acute]
-  "skills": ["HTML","CSS","JavaScript","JQuery","MS Office","Economics","Investing"],  // array within JSON
+  "skills": ["HTML","CSS","JavaScript","JQuery","MS Office","Economics","Investing"],  // array
   "bioPic": "images/me.jpg",
 
-  // 😕 WHAT IS THIS FUNCTION? Given in the mockup, but website works without it?  But there is a 'bio.display = function...' below [L102] -- why?
-  // "display": function
+  // "display": function  // replaced by 'bio.display = function...' below [L102] ??
 };
 
 var education = {
@@ -32,8 +41,8 @@ var education = {
       "name": "Harvard University",
       "location": "Cambridge MA",
       "degree": "Bachelor's",
-      "major": ["Economics"],
-      "dates": 2004,                      // simple integer can be left as is
+      "major": ["Economics"],  // array
+      "dates": 2004,  // simple integer can be left as is
       "url": "http://www.harvard.edu"
     },
     {
@@ -101,14 +110,17 @@ var projects = {
 
 /* ---------- HEADER & FOOTER ---------- */
 
-bio.display = function() {  // anonymous function expression  [😕 is this adding a fn to the "bio" json?]
+// add 'display' method to 'bio' object
+bio.display = function() {
 
-  var formattedName = HTMLheaderName.replace("%data%",bio.name);  // JS's .replace(old, new) swaps out placeholder (e.g. %data%) for data from JSONs (bio.name); "HTMLheaderName" is a var in helper.js/L10
+  // .replace(old, new) swaps out placeholder (e.g. %data%) for data from the JSONs (bio.name)
+  var formattedName = HTMLheaderName.replace("%data%",bio.name);  // "HTMLheaderName" is var in helper.js/L10
   var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
   var formattedImage = HTMLbioPic.replace("%data%",bio.bioPic);
   var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-  $("#header").prepend(formattedName,formattedRole).append(formattedImage,formattedMessage);  // jQuery’s .prepend() & .append() inserts the specified content as the first/last child of each element in the set of matched elements
+  // [jQuery] prepend/append inserts content as first/last child of each element in set of matched elements
   // see notes.html for what happens in this case
+  $("#header").prepend(formattedName,formattedRole).append(formattedImage,formattedMessage);
 
   var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
   $("#topContacts").append(formattedMobile);
