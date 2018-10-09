@@ -113,41 +113,42 @@ var projects = {
 // add 'display' method to 'bio' object
 bio.display = function() {
 
-  // .replace(old, new) swaps out placeholder (e.g. %data%) for data from the JSONs (bio.name)
+  // [JS] replace(old, new) swaps out placeholder (e.g. %data%) for data from the JSONs (bio.name)
   var formattedName = HTMLheaderName.replace("%data%",bio.name);  // "HTMLheaderName" is var in helper.js/L10
-  var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-  var formattedImage = HTMLbioPic.replace("%data%",bio.bioPic);
-  var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+  var formattedRole = HTMLheaderRole.replace("%data%",bio.role);                // L11
+  var formattedImage = HTMLbioPic.replace("%data%",bio.bioPic);                 // L21
+  var formattedMessage = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);   // L22
   // [jQuery] prepend/append inserts content as first/last child of each element in set of matched elements
-  // see notes.html for what happens in this case
-  $("#header").prepend(formattedName,formattedRole).append(formattedImage,formattedMessage);
+  // 😕 SEE NOTES.HTML FOR WHAT HAPPENS HERE: v. useful to learn this setup
+  $("#header").prepend(formattedName,formattedRole).append(formattedImage,formattedMessage);  // "header" in index.html L24
 
-  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-  $("#topContacts").append(formattedMobile);
-  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);      // L14
+  $("#topContacts").append(formattedMobile);                                                  // "topContacts" in index.html L28
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);         // L15
   $("#topContacts").append(formattedEmail);
-  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);      // L17
   $("#topContacts").append(formattedGithub);
-  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);   // L16
   $("#topContacts").append(formattedTwitter);
-  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);// L19
   $("#topContacts").append(formattedLocation);
 
-  $("#footerContacts").append(formattedMobile);
-  $("#footerContacts").append(formattedEmail);
-  $("#footerContacts").append(formattedGithub);
-  $("#footerContacts").append(formattedTwitter);
-  $("#footerContacts").append(formattedLocation);
+  if(bio.skills.length > 0) {                       // loop for flexible addition of skills
 
-  if(bio.skills.length > 0) {                       // converted into loop for flexible addition of skills
-
-    $("#header").append(HTMLskillsStart);
+    $("#header").append(HTMLskillsStart);                                       // 24
 
     for(var i = 0; i < bio.skills.length; i++) {
       formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
       $("#skills").append(formattedSkill);
     }
   }
+
+  $("#footerContacts").append(formattedMobile);     // page-bottom
+  $("#footerContacts").append(formattedEmail);
+  $("#footerContacts").append(formattedGithub);
+  $("#footerContacts").append(formattedTwitter);
+  $("#footerContacts").append(formattedLocation);
+
 };
 
 bio.display();
